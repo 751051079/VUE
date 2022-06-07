@@ -1,19 +1,14 @@
+
 <template>
-  <div>
-    <router-view></router-view>
-  </div>
+  <router-view v-slot="{ Component }">
+    <component :is="Component" />
+  </router-view>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-
-
-export default defineComponent({
-  name:"app",
-  components:{}
-})
+export default defineComponent({});
 </script>
 
 <style>
-
 </style>

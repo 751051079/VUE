@@ -10,20 +10,7 @@
  * 首次开发时间：
  * 最后更新时间
  */
-export default {
-  data () {
-    return {
-    };
-  },
 
-  components: {},
-
-  computed: {},
-
-  mounted: {},
-
-  methods: {}
-}
 
 </script>
 <style scoped>
