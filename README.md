@@ -1,4 +1,4 @@
-# my_vue_components
+# 组件库
 
 ## Project setup
 ```
