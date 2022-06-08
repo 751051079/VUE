@@ -1,24 +1,32 @@
 # 组件库
 
-## Project setup
+
+
+## 安装TypeScirpt 1.0.1
+
 ```
+//通过vue add typescript 安装TypeScirpt
+vue add typescript
+
+//添加shims-vue.d.ts文件
+
+//添加tsconfig.json文件
+
+```
+
+## 创建项目 1.0.0
+
+```
+//项目安装依赖
 yarn install
-```
 
-### Compiles and hot-reloads for development
-```
+//项目运行
 yarn serve
-```
 
-### Compiles and minifies for production
-```
+//项目打包
 yarn build
-```
 
-### Lints and fixes files
-```
+//检查项目配置
 yarn lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```
