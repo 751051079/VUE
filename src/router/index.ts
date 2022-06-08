@@ -1,9 +1,15 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 // 还有 createWebHashHistory 和 createMemoryHistory
-
-let router = createRouter({
+const routes:RouteRecordRaw[] = [
+  {
+    path:"/home",
+    name:"home",
+    component:()=>import("../view/home.vue")
+  }
+]
+const router = createRouter({
   history: createWebHistory(),
-  routes: [],
+  routes
 })
 
 export default router
