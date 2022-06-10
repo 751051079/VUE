@@ -1,6 +1,6 @@
 # 组件库
 
-##  1.0.1
+##  Version：1.0.1
 ### 安装TypeScirpt
 
 ```
@@ -13,7 +13,7 @@ vue add typescript
 
 ```
 
-## Ves 1.0.0
+## Version：1.0.0
 ### 创建项目
 
 ```

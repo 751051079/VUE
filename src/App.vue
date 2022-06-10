@@ -1,6 +1,8 @@
 <template>
-  <nav-header></nav-header>
-  <router-view />
+  <div class="bg">
+    <nav-header></nav-header>
+    <router-view />
+  </div>
 </template>
 
 <script lang="ts">
@@ -18,5 +20,10 @@ export default defineComponent({
 * {
   margin: 0;
   padding: 0;
+}
+.bg{
+  background-image: url('./assets/bg/bg1.jpg');
+  background-size: 100% 100vh;
+  min-height: 100vh;
 }
 </style>

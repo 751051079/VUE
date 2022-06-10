@@ -1,20 +1,22 @@
 <template>
   <div class="hello">
-    12
+    
   </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
+import { onMounted } from "vue";
+export default {
+  name: "nav-header",
+  setup() {
+    onMounted(() => {
 
-@Options({
-  props: {
-    msg: String
-  }
-})
-export default class home extends Vue {
-  msg!: string
-}
+    });
+    return {
+      
+    };
+  },
+};
 </script>
 
 <style scoped lang="scss">

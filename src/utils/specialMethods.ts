@@ -4,17 +4,21 @@ import axios from "axios";
  * @param city 城市
  */
 const getLocalWeather = (city: String) => {
-  axios
+  return new Promise(function(resolve,reject){
+    axios
     .get(`http://wthrcdn.etouch.cn/weather_mini?city=${city}`)
     .then((res) => {
       if (res.status == 200) {
-        return res.data.data;
+        console.log(res.data.data)
+        resolve(res.data)
       } else {
-        return "";
+        reject(res.data)
       }
     })
     .catch((err) => {
-      return "";
+      reject(err)
     });
+  })
+  
 };
 export { getLocalWeather };

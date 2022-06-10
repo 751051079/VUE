@@ -1,6 +1,6 @@
 import { RouteRecordRaw } from "vue-router"
 
-const Home = ()=>import("../view/home.vue");//首页
+const Home = ()=>require("@/view/home.vue");//首页
 
 
 /**
