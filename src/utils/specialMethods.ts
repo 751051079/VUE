@@ -9,7 +9,6 @@ const getLocalWeather = (city: String) => {
     .get(`http://wthrcdn.etouch.cn/weather_mini?city=${city}`)
     .then((res) => {
       if (res.status == 200) {
-        console.log(res.data.data)
         resolve(res.data)
       } else {
         reject(res.data)

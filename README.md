@@ -1,5 +1,13 @@
 # 组件库
 
+## Version 1.0.11
+### 添加最近一周天气显示
+
+```
+代码目录（/src/components/nav-header.vue）
+```
+![avatar](/updataImage/1.jpg)
+
 ##  Version：1.0.1
 ### 安装TypeScirpt
 

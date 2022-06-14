@@ -5,18 +5,12 @@
 </template>
 
 <script lang="ts">
-import { onMounted } from "vue";
-export default {
-  name: "nav-header",
-  setup() {
-    onMounted(() => {
-
-    });
-    return {
-      
-    };
-  },
-};
+import { defineComponent } from "vue"
+export default defineComponent({
+  // eslint-disable-next-line vue/multi-word-component-names
+  name: "home",
+  components: {  }
+}) 
 </script>
 
 <style scoped lang="scss">
