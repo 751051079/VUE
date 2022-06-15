@@ -55,20 +55,6 @@ export default {
       // init();
     });
     let data: any = ref({
-      // city: "广州",
-      // forecast: [
-      //   {
-      //     date: "14日星期二",
-      //     fengli: "1级",
-      //     fengxiang: "东北风",
-      //     high: "27℃",
-      //     low: "23℃",
-      //     type: "暴雨",
-      //   }
-      // ],
-      // ganmao: "感冒低发期，天气舒适，请注意多吃蔬菜水果，多喝水哦。",
-      // wendu: "26",
-      // yesterday: "",
       localWeather: {},
     });
     let { localWeather } = toRefs(data.value);
@@ -151,7 +137,7 @@ export default {
 
 .info {
   position: relative;
-  transition: all 1s;
+  transition: all 3s;
 }
 
 .city {
@@ -179,6 +165,7 @@ export default {
   background: rgba(0, 0, 0, 0.4);
   overflow: hidden;
   height: 0;
+  transition: all 3s;
 }
 
 .localWeathe_item {
