@@ -7,9 +7,9 @@ module.exports = defineConfig({
   //放置生成的静态资源 (js、css、img、fonts) 的 (相对于 outputDir 的) 目录
   // assetsDir:"./static/",
   //指定生成的 index.html 的输出路径 (相对于 outputDir)。也可以是一个绝对路径
-  indexPath:"./",
+  // indexPath:"/",
   //是否在开发环境下通过 eslint-loader 在每次保存时 lint 代码
-  lintOnSave:'default',
+  lintOnSave:false,
   //是否使用包含运行时编译器的 Vue 构建版本。设置为 true 后你就可以在 Vue 组件中使用 template 选项了，但是这会让你的应用额外增加 10kb 左右
   runtimeCompiler:false,
   //默认情况下 babel-loader 会忽略所有 node_modules 中的文件。你可以启用本选项，以避免构建后的代码中出现未转译的第三方依赖。不过，对所有的依赖都进行转译可能会降低构建速度。如果对构建性能有所顾虑，你可以只转译部分特定的依赖：给本选项传一个数组，列出需要转译的第三方包包名或正则表达式即可。

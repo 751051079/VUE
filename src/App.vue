@@ -1,29 +1,35 @@
 <template>
-  <div class="bg">
-    <nav-header></nav-header>
-    <router-view />
-  </div>
+  <nav-header v-if="!isHeader"></nav-header>
+  <router-view />
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue"
-import navHeader from '@/components/nav-header.vue'
+import { defineComponent } from "vue";
+import navHeader from "@/components/nav-header.vue";
+import { useStore } from "vuex";
 export default defineComponent({
   name: "App",
-  components: { navHeader }
-})
+  data() {
+    const store = useStore();
+    console.log(store)
+    return {
+      isHeader: false,
+    };
+  },
+  watch:{
+    $route(to){
+      this.isHeader = to.meta.hide || false
+    }
+  },
+  components: { navHeader },
+});
 </script>
 
 <style lang="scss">
-@import url('./common/commoncs.css');
+@import url("./common/commoncs.css");
 
 * {
   margin: 0;
   padding: 0;
-}
-.bg{
-  background-image: url('./assets/bg/bg1.jpg');
-  background-size: 100% 100vh;
-  min-height: 100vh;
 }
 </style>

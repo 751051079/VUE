@@ -1,9 +1,17 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import routes from './router'
-
+import { createRouter, createWebHashHistory, Router } from "vue-router";
+import routes from "./router";
 const router = createRouter({
-  history: createWebHistory(),
-  routes
-})
+  history: createWebHashHistory(),
+  routes,
+});
 
-export default router
+function RouterStack(router: Router) {
+  // const stack = [];
+  router.afterEach((to, from) => {
+  });
+  return router;
+}
+
+RouterStack(router);
+
+export default router;

@@ -5,32 +5,22 @@
       <span class="city">{{ localWeather.city }}</span>
       <span class="city">{{ localWeather.wendu }}℃</span>
       <div v-if="localWeather.forecast">
-        <img src="../assets/localWeatheImage/1.png" v-if="localWeather.forecast[0].type == '小雨'"
-          class="local_weathe_logo m-left-10" />
-        <img src="../assets/localWeatheImage/2.png" v-if="localWeather.forecast[0].type == '中雨'"
-          class="local_weathe_logo m-left-10" />
-        <img src="../assets/localWeatheImage/3.png" v-if="localWeather.forecast[0].type == '大雨'"
-          class="local_weathe_logo m-left-10" />
-        <img src="../assets/localWeatheImage/4.png" v-if="localWeather.forecast[0].type == '暴雨'"
-          class="local_weathe_logo m-left-10" />
+        <img :src="localWeather.forecast[0].weatherIcon" class="local_weathe_logo m-left-10" />
       </div>
 
       <div class="flex localWeathe">
         <div class="flex-column-align localWeathe_item" v-for="(item, index) in localWeather.forecast" :key="index">
           <div>{{ item.date }}</div>
           <div>{{ item.low + " ~ " + item.high }}</div>
-          <img src="../assets/localWeatheImage/1.png" v-if="item.type == '小雨'" class="local_weathe_logo" />
-          <img src="../assets/localWeatheImage/2.png" v-if="item.type == '中雨'" class="local_weathe_logo" />
-          <img src="../assets/localWeatheImage/3.png" v-if="item.type == '大雨'" class="local_weathe_logo" />
-          <img src="../assets/localWeatheImage/3.png" v-if="item.type == '暴雨'" class="local_weathe_logo" />
+          <img :src="item.weatherIcon" class="local_weathe_logo" />
           <div>{{ item.type }}</div>
           <div>{{ item.fengxiang + " " + item.fengli }}</div>
         </div>
       </div>
     </div>
-    <div class="flex-align">
+    <div class="flex-align" style="margin-right: 30px">
       <div class="meus_item" v-for="(item, index) in meus" :key="item.title + index">
-        <router-link class="meus_item_link" to="/">
+        <router-link class="meus_item_link" :to="item.path">
           <!-- <img :src="item.imgSrc" alt="加载失败"> -->
           <span>{{ item.title }}</span>
         </router-link>
@@ -44,10 +34,10 @@
  * 开发功能：头部导航栏
  * 开发人员：冉敬坤
  * 首次开发时间：2022-6-9
- * 最后更新时间：2022-6-10
+ * 最后更新时间：2022-8-16
  */
 import { onMounted, ref, toRefs } from "vue";
-import { getLocalWeather } from "@/utils/specialMethods";
+import { getLocalWeather, getWeaherIcon } from "@/utils/specialMethods";
 export default {
   name: "nav-header",
   setup() {
@@ -58,13 +48,13 @@ export default {
       localWeather: {},
     });
     let { localWeather } = toRefs(data.value);
-    const meus = [
-      { title: "首页", imgSrc: "", path: "" },
-      { title: "文章", imgSrc: "", path: "" },
-      { title: "作品", imgSrc: "", path: "" },
-      { title: "生活", imgSrc: "", path: "" },
-      { title: "留言板", imgSrc: "", path: "" },
-      { title: "关于我", imgSrc: "", path: "" },
+    const meus: any = [
+      { title: "首页", imgSrc: "", path: "/" },
+      { title: "文章", imgSrc: "", path: "/" },
+      { title: "作品", imgSrc: "", path: "/" },
+      { title: "生活", imgSrc: "", path: "/1" },
+      { title: "留言板", imgSrc: "", path: "/file/ts" },
+      { title: "关于我", imgSrc: "", path: "/" },
     ];
     // 初始化地图
     const init = () => {
@@ -79,7 +69,9 @@ export default {
               .replace("]]>", "");
             res.data.forecast[x].high = res.data.forecast[x].high.split(" ")[1];
             res.data.forecast[x].low = res.data.forecast[x].low.split(" ")[1];
+            res.data.forecast[x].weatherIcon = getWeaherIcon(res.data.forecast[x].type);
           }
+
           localWeather.value = res.data;
           console.log(localWeather);
         });
@@ -95,10 +87,12 @@ export default {
 </script>
 <style scoped>
 .nav {
-  padding: 10px 30px;
+  width: 100%;
   font-size: 18px;
   color: #fff;
   background-color: rgba(0, 0, 0, 0.4);
+  height: 45px;
+  position: fixed;
 }
 
 .meus_item {
@@ -138,6 +132,7 @@ export default {
 .info {
   position: relative;
   transition: all 3s;
+  margin-left: 30px;
 }
 
 .city {

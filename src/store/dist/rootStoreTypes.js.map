@@ -1,0 +1,1 @@
+{"version":3,"sources":["rootStoreTypes.ts"],"names":[],"mappings":"","file":"rootStoreTypes.js","sourcesContent":["export interface IRootStore {\n  isHeader:Boolean\n}"]}
