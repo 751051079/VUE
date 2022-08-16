@@ -22,6 +22,22 @@ vue add typescript
 ```
 
 ## Version：1.0.0
+### 提交代码
+```
+
+//添加到本地仓库
+git add .
+
+//提交代码
+git commit -m ‘提交信息’
+
+//推送
+git push
+
+//拉取
+git pull
+```
+
 ### 创建项目
 
 ```
